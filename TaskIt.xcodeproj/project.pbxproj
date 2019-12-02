@@ -14,6 +14,7 @@
 		DC6C308423951C8A006DFA9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6C308323951C8A006DFA9A /* Assets.xcassets */; };
 		DC6C308723951C8A006DFA9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6C308523951C8A006DFA9A /* LaunchScreen.storyboard */; };
 		DC6C308F239529C2006DFA9A /* TaskListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C308E239529C2006DFA9A /* TaskListItem.swift */; };
+		DC6C309423954501006DFA9A /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C309323954501006DFA9A /* TaskList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		DC6C308623951C8A006DFA9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC6C308823951C8A006DFA9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC6C308E239529C2006DFA9A /* TaskListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListItem.swift; sourceTree = "<group>"; };
+		DC6C309323954501006DFA9A /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +62,39 @@
 			children = (
 				DC6C307A23951C84006DFA9A /* AppDelegate.swift */,
 				DC6C307C23951C84006DFA9A /* SceneDelegate.swift */,
-				DC6C307E23951C84006DFA9A /* TaskTimeViewController.swift */,
-				DC6C308023951C84006DFA9A /* Main.storyboard */,
+				DC6C309523954624006DFA9A /* Controller */,
+				DC6C30962395462F006DFA9A /* View */,
 				DC6C308323951C8A006DFA9A /* Assets.xcassets */,
 				DC6C308523951C8A006DFA9A /* LaunchScreen.storyboard */,
 				DC6C308823951C8A006DFA9A /* Info.plist */,
-				DC6C308E239529C2006DFA9A /* TaskListItem.swift */,
+				DC6C3092239544DC006DFA9A /* Model */,
 			);
 			path = TaskIt;
+			sourceTree = "<group>";
+		};
+		DC6C3092239544DC006DFA9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DC6C308E239529C2006DFA9A /* TaskListItem.swift */,
+				DC6C309323954501006DFA9A /* TaskList.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DC6C309523954624006DFA9A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DC6C307E23951C84006DFA9A /* TaskTimeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DC6C30962395462F006DFA9A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DC6C308023951C84006DFA9A /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC6C308F239529C2006DFA9A /* TaskListItem.swift in Sources */,
+				DC6C309423954501006DFA9A /* TaskList.swift in Sources */,
 				DC6C307F23951C84006DFA9A /* TaskTimeViewController.swift in Sources */,
 				DC6C307B23951C84006DFA9A /* AppDelegate.swift in Sources */,
 				DC6C307D23951C84006DFA9A /* SceneDelegate.swift in Sources */,
