@@ -9,6 +9,14 @@
 import UIKit
 
 class TaskTimeViewController: UITableViewController {
+    
+    var row0Item : TaskListItem
+    
+    required init?(coder aDecoder: NSCoder) {
+        row0Item = TaskListItem()
+        row0Item.text = "This is just a test cell!"
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +30,7 @@ class TaskTimeViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskItemCell", for: indexPath)
         if let label = cell.viewWithTag(1000) as? UILabel {
-            if indexPath.row % 3 == 0 {
+            if indexPath.row == 0 {
                 label.text = "My first cell"
             } else if indexPath.row % 2 == 0 {
                 label.text = "Here's another cell"
@@ -35,7 +43,15 @@ class TaskTimeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
-            if cell.accessoryType == .none {
+            if indexPath.row == 0 {
+                if row0Item.checked == false {
+                    cell.accessoryType = .checkmark
+                } else if row0Item.checked == true {
+                    cell.accessoryType = .none
+                }
+                row0Item.checked = !row0Item.checked
+                
+            } else if cell.accessoryType == .none {
                 cell.accessoryType = .checkmark
             } else if cell.accessoryType == .checkmark {
                 cell.accessoryType = .none
