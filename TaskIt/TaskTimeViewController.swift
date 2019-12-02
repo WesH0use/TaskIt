@@ -21,6 +21,13 @@ class TaskTimeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskItemCell", for: indexPath)
+        if let label = cell.viewWithTag(1000) as? UILabel {
+            if indexPath.row == 0 {
+                label.text = "My first cell"
+            } else {
+                label.text = "My other cells"
+            }
+        }
         return cell
     }
 
