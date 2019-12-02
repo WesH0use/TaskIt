@@ -15,6 +15,7 @@
 		DC6C308723951C8A006DFA9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6C308523951C8A006DFA9A /* LaunchScreen.storyboard */; };
 		DC6C308F239529C2006DFA9A /* TaskListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C308E239529C2006DFA9A /* TaskListItem.swift */; };
 		DC6C309423954501006DFA9A /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C309323954501006DFA9A /* TaskList.swift */; };
+		DCA58AF12395A2C00034D613 /* NewItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA58AF02395A2C00034D613 /* NewItemTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		DC6C308823951C8A006DFA9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC6C308E239529C2006DFA9A /* TaskListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListItem.swift; sourceTree = "<group>"; };
 		DC6C309323954501006DFA9A /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
+		DCA58AF02395A2C00034D613 /* NewItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				DC6C308E239529C2006DFA9A /* TaskListItem.swift */,
 				DC6C309323954501006DFA9A /* TaskList.swift */,
+				DCA58AF02395A2C00034D613 /* NewItemTableViewController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCA58AF12395A2C00034D613 /* NewItemTableViewController.swift in Sources */,
 				DC6C308F239529C2006DFA9A /* TaskListItem.swift in Sources */,
 				DC6C309423954501006DFA9A /* TaskList.swift in Sources */,
 				DC6C307F23951C84006DFA9A /* TaskTimeViewController.swift in Sources */,
