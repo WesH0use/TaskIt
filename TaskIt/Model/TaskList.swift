@@ -28,4 +28,11 @@ class TaskList {
         taskListArray.append(row2Item)
         taskListArray.append(row3Item)
     }
+    
+    func newTask() -> TaskListItem {
+        let item = TaskListItem()
+        item.text = "Here is my new test item"
+        taskListArray.append(item)
+        return item
+    }
 }

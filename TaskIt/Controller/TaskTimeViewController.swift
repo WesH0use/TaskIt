@@ -14,6 +14,11 @@ class TaskTimeViewController: UITableViewController {
     
     @IBAction func addButtonPressed(_ sender: Any) {
         print("Test item Added")
+        let newRowIndex = taskList.taskListArray.count
+        _ = taskList.newTask()
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
     }
     
     
@@ -28,7 +33,7 @@ class TaskTimeViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         // Do any additional setup after loading the view.
     }
-
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taskList.taskListArray.count
@@ -50,6 +55,7 @@ class TaskTimeViewController: UITableViewController {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
     
     func configureTaskText(for cell: UITableViewCell, with item: TaskListItem) {
         if let label = cell.viewWithTag(1000) as? UILabel {
