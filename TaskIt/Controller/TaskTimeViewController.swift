@@ -12,11 +12,13 @@ class TaskTimeViewController: UITableViewController {
     
     var taskList : TaskList
     
+    @IBAction func addButtonPressed(_ sender: Any) {
+        print("Test item Added")
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
-
         taskList = TaskList()
-    
         super.init(coder: aDecoder)
     }
 

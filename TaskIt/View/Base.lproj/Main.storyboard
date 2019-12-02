@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Task Time View Controller-->
+        <!--Task List-->
         <scene sceneID="H6r-YE-BD4">
             <objects>
                 <tableViewController id="MBa-o4-aPf" customClass="TaskTimeViewController" customModule="TaskIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -43,7 +43,14 @@
                             <outlet property="delegate" destination="MBa-o4-aPf" id="hKJ-4e-P3U"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="l6M-RZ-goi"/>
+                    <navigationItem key="navigationItem" title="Task List" id="l6M-RZ-goi">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="uW0-Qc-qbB">
+                            <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="MBa-o4-aPf" id="Th6-AR-PI8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nV5-n7-xls" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
