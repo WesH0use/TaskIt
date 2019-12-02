@@ -31,8 +31,19 @@ class TaskList {
     
     func newTask() -> TaskListItem {
         let item = TaskListItem()
-        item.text = "Here is my new test item"
+        item.text = randomDescription()
+        item.checked = true
         taskListArray.append(item)
         return item
+    }
+    
+    private func randomDescription() -> String {
+        let randomArray = ["To Do List App",
+                           "Weather App",
+                           "Messaging App",
+                           "Augmented Reality App",
+                           "Another AR App"]
+        let randomNumer = Int.random(in: 0..<randomArray.count)
+        return randomArray[randomNumer]
     }
 }
