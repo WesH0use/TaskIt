@@ -12,6 +12,7 @@ class TaskTimeViewController: UITableViewController {
     
     var taskList : TaskList
     
+    
     required init?(coder aDecoder: NSCoder) {
 
         taskList = TaskList()
@@ -19,11 +20,13 @@ class TaskTimeViewController: UITableViewController {
         super.init(coder: aDecoder)
     }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taskList.taskListArray.count
     }
@@ -31,9 +34,8 @@ class TaskTimeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskItemCell", for: indexPath)
-        if let label = cell.viewWithTag(1000) as? UILabel {
-            label.text = taskList.taskListArray[indexPath.row].text
-        }
+        let item = taskList.taskListArray[indexPath.row]
+        configureTaskText(for: cell, with: item)
         configureCheckmark(for: cell, at: indexPath)
         return cell
     }
@@ -46,6 +48,11 @@ class TaskTimeViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func configureTaskText(for cell: UITableViewCell, with item: TaskListItem) {
+        if let label = cell.viewWithTag(1000) as? UILabel {
+            label.text = item.text
+        }
+    }
     
     func configureCheckmark(for cell: UITableViewCell, at indexPath: IndexPath) {
         let isChecked = taskList.taskListArray[indexPath.row].checked
