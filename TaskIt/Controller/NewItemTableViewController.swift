@@ -14,7 +14,7 @@ class NewItemTableViewController: UITableViewController {
     
     @IBAction func doneButtonPressed(_ sender: Any) {
         navigationController?.popViewController(animated: true)
-        print("Done")
+        print("User input is: \(usersItemInput.text)")
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
@@ -24,6 +24,7 @@ class NewItemTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
+        usersItemInput.delegate = self
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -34,4 +35,13 @@ class NewItemTableViewController: UITableViewController {
         usersItemInput.becomeFirstResponder()
     }
 
+}
+
+extension NewItemTableViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        usersItemInput.resignFirstResponder()
+        return false
+    }
+    
 }
