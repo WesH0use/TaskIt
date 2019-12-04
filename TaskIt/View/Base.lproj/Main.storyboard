@@ -79,6 +79,9 @@
                                                     <rect key="frame" x="20" y="4" width="374" height="34.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="doneButtonPressed:" destination="grq-YJ-uyS" eventType="editingDidEnd" id="28e-dS-9Ih"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -105,7 +108,7 @@
                                 <action selector="cancelButtonPressed:" destination="grq-YJ-uyS" id="O99-Gv-x7L"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="MtS-kG-hyQ">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Done" id="MtS-kG-hyQ">
                             <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="doneButtonPressed:" destination="grq-YJ-uyS" id="F00-10-S3e"/>
@@ -113,6 +116,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="2qP-JX-Wsy" id="CPu-K3-gSV"/>
+                        <outlet property="doneButton" destination="MtS-kG-hyQ" id="1pU-a5-FNY"/>
                         <outlet property="usersItemInput" destination="P9m-25-BZo" id="dPi-5M-vZ9"/>
                     </connections>
                 </tableViewController>
