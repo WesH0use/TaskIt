@@ -79,7 +79,6 @@
 			children = (
 				DC6C308E239529C2006DFA9A /* TaskListItem.swift */,
 				DC6C309323954501006DFA9A /* TaskList.swift */,
-				DCA58AF02395A2C00034D613 /* NewItemTableViewController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -88,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				DC6C307E23951C84006DFA9A /* TaskTimeViewController.swift */,
+				DCA58AF02395A2C00034D613 /* NewItemTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

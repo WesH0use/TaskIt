@@ -10,11 +10,12 @@ import UIKit
 
 class NewItemTableViewController: UITableViewController {
 
+    @IBOutlet weak var usersItemInput: UITextField!
     
     @IBAction func doneButtonPressed(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+        print("Done")
     }
-    
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -22,8 +23,15 @@ class NewItemTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationItem.largeTitleDisplayMode = .never
     }
     
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        usersItemInput.becomeFirstResponder()
+    }
 
 }
