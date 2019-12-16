@@ -43,6 +43,14 @@ class TaskList {
         taskListArray.insert(item, at: index)
     }
     
+    func removeMultiple(items: [TaskListItem]) {
+        for item in items {
+            if let index = taskListArray.firstIndex(of: item) {
+                taskListArray.remove(at: index)
+            }
+        }
+    }
+    
     private func randomDescription() -> String {
         let randomArray = ["To Do List App",
                            "Weather App",

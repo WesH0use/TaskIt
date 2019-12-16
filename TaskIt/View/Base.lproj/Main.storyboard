@@ -58,13 +58,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Task List" id="l6M-RZ-goi">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="uW0-Qc-qbB">
-                            <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="addButtonPressed:" destination="MBa-o4-aPf" id="Th6-AR-PI8"/>
-                                <segue destination="grq-YJ-uyS" kind="show" identifier="NewTaskSegue" id="X6r-wm-XI7"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="uW0-Qc-qbB">
+                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="MBa-o4-aPf" id="Th6-AR-PI8"/>
+                                    <segue destination="grq-YJ-uyS" kind="show" identifier="NewTaskSegue" id="X6r-wm-XI7"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Delete" id="yYr-C8-eeK">
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="MBa-o4-aPf" id="AfG-NX-gC6"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nV5-n7-xls" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

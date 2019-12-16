@@ -21,6 +21,19 @@ class TaskTimeViewController: UITableViewController {
         tableView.insertRows(at: indexPaths, with: .automatic)
     }
     
+    @IBAction func deleteButtonPressed(_ sender: Any) {
+        if let selectedRows = tableView.indexPathsForSelectedRows {
+            var items = [TaskListItem]()
+            for indexPath in selectedRows {
+                items.append(taskList.taskListArray[indexPath.row])
+            }
+            taskList.removeMultiple(items: items)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: selectedRows, with: .middle)
+            tableView.endUpdates()
+            
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         taskList = TaskList()
@@ -32,6 +45,7 @@ class TaskTimeViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.leftBarButtonItem = editButtonItem
+        tableView.allowsMultipleSelectionDuringEditing = true
         // Do any additional setup after loading the view.
     }
     
@@ -68,6 +82,10 @@ class TaskTimeViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView.isEditing {
+            
+            return
+        }
         if let cell = tableView.cellForRow(at: indexPath) {
             let item = taskList.taskListArray[indexPath.row]
             configureCheckmark(for: cell, with: item)
