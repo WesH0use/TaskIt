@@ -94,6 +94,7 @@ class TaskTimeViewController: UITableViewController {
                    let indexPath = tableView.indexPath(for: cell) {
                     let item = taskList.taskListArray[indexPath.row]
                     newItemTableViewController.taskToEdit = item
+                    newItemTableViewController.delegate = self
                 }
             }
         }
@@ -102,14 +103,23 @@ class TaskTimeViewController: UITableViewController {
 }
 
 extension TaskTimeViewController : NewItemViewControllerDelegate {
+    func newItemViewControllerDidEdit(_ controller: NewItemTableViewController, didFinishEdit item: TaskListItem) {
+        if let index = taskList.taskListArray.firstIndex(of: item) {
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = tableView.cellForRow(at: indexPath) {
+                configureTaskText(for: cell, with: item)
+            }
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    
     func newItemViewControllerDidCancel(_ controller: NewItemTableViewController) {
         navigationController?.popViewController(animated: true)
     }
     
     func newItemViewControllerDidDone(_ controller: NewItemTableViewController, didFinishDone item: TaskListItem) {
         navigationController?.popViewController(animated: true)
-        let rowIndex = taskList.taskListArray.count
-        taskList.taskListArray.append(item)
+        let rowIndex = taskList.taskListArray.count - 1
         let indexPath = IndexPath(row: rowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .middle)

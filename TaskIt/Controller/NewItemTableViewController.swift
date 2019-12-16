@@ -12,8 +12,8 @@ import UIKit
 protocol NewItemViewControllerDelegate : class {
     func newItemViewControllerDidCancel(_ controller: NewItemTableViewController)
     func newItemViewControllerDidDone(_ controller: NewItemTableViewController, didFinishDone item: TaskListItem)
+    func newItemViewControllerDidEdit(_ controller: NewItemTableViewController, didFinishEdit item: TaskListItem)
 }
-
 
 class NewItemTableViewController: UITableViewController {
     
@@ -27,13 +27,19 @@ class NewItemTableViewController: UITableViewController {
     
     
     @IBAction func doneButtonPressed(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-        let item = TaskListItem()
-        if let textField = usersItemInput.text {
-            item.text = textField
+        if let item = taskToEdit, let text = usersItemInput.text {
+            item.text = text
+            delegate?.newItemViewControllerDidEdit(self, didFinishEdit: item)
+            
+        } else {
+            if let item = taskList?.newTask() {
+                if let textField = usersItemInput.text {
+                    item.text = textField
+                }
+                item.checked = false
+                delegate?.newItemViewControllerDidDone(self, didFinishDone: item)
+            }
         }
-        item.checked = false
-        delegate?.newItemViewControllerDidDone(self, didFinishDone: item)
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
