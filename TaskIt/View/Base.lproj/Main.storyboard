@@ -15,15 +15,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="taskItemCell" id="q5y-W1-fwM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="taskItemCell" id="q5y-W1-fwM">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q5y-W1-fwM" id="elf-k8-XWB">
-                                    <rect key="frame" x="0.0" y="0.0" width="370" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="351" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJt-QF-oPl">
-                                            <rect key="frame" x="20" y="11" width="330" height="21"/>
+                                            <rect key="frame" x="51" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEC-IS-RvG">
+                                            <rect key="frame" x="20" y="11" width="29" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -31,11 +37,17 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="jJt-QF-oPl" secondAttribute="bottom" constant="11" id="77x-4K-mYt"/>
+                                        <constraint firstItem="jJt-QF-oPl" firstAttribute="leading" secondItem="WEC-IS-RvG" secondAttribute="trailing" constant="2" id="F2O-ad-P6G"/>
                                         <constraint firstItem="jJt-QF-oPl" firstAttribute="top" secondItem="elf-k8-XWB" secondAttribute="top" constant="11" id="K2X-ME-i06"/>
-                                        <constraint firstAttribute="trailing" secondItem="jJt-QF-oPl" secondAttribute="trailing" constant="20" symbolic="YES" id="Lzo-WZ-Pkl"/>
-                                        <constraint firstItem="jJt-QF-oPl" firstAttribute="leading" secondItem="elf-k8-XWB" secondAttribute="leading" constant="20" symbolic="YES" id="xwf-9J-pn1"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jJt-QF-oPl" secondAttribute="trailing" constant="20" symbolic="YES" id="Lzo-WZ-Pkl"/>
+                                        <constraint firstItem="WEC-IS-RvG" firstAttribute="leading" secondItem="elf-k8-XWB" secondAttribute="leadingMargin" id="ay8-px-Rfa"/>
+                                        <constraint firstItem="WEC-IS-RvG" firstAttribute="firstBaseline" secondItem="jJt-QF-oPl" secondAttribute="firstBaseline" id="c38-oi-Ucq"/>
+                                        <constraint firstItem="jJt-QF-oPl" firstAttribute="leading" secondItem="elf-k8-XWB" secondAttribute="leading" constant="51" id="xwf-9J-pn1"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="grq-YJ-uyS" kind="show" identifier="EditItemSegue" trigger="accessoryAction" id="gFq-h8-Jfc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -145,4 +157,7 @@
             <point key="canvasLocation" x="147.82608695652175" y="119.86607142857142"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="gFq-h8-Jfc"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -14,4 +14,8 @@ class TaskListItem {
     var text = ""
     var checked = false
     
+    func changeChecked() {
+      checked = !checked
+    }
+    
 }

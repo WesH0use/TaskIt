@@ -52,16 +52,17 @@ class TaskTimeViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskItemCell", for: indexPath)
         let item = taskList.taskListArray[indexPath.row]
         configureTaskText(for: cell, with: item)
-        configureCheckmark(for: cell, at: indexPath)
+        configureCheckmark(for: cell, with: item)
         return cell
     }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
-            configureCheckmark(for: cell, at: indexPath)
+            let item = taskList.taskListArray[indexPath.row]
+            configureCheckmark(for: cell, with: item)
+            tableView.deselectRow(at: indexPath, animated: true)
         }
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
@@ -71,22 +72,31 @@ class TaskTimeViewController: UITableViewController {
         }
     }
     
-    func configureCheckmark(for cell: UITableViewCell, at indexPath: IndexPath) {
-        let isChecked = taskList.taskListArray[indexPath.row].checked
-        if isChecked {
-                cell.accessoryType = .checkmark
-            } else if isChecked == false {
-                cell.accessoryType = .none
+    func configureCheckmark(for cell: UITableViewCell, with item: TaskListItem) {
+        guard let checkmark = cell.viewWithTag(1001) as? UILabel else { return }
+        if item.checked {
+            checkmark.text = "✅"
+            } else {
+            checkmark.text = ""
             }
-        taskList.taskListArray[indexPath.row].checked = !isChecked
+        item.changeChecked()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if segue.identifier == "NewTaskSegue" {
              if let newItemTableViewController = segue.destination as? NewItemTableViewController {
                 newItemTableViewController.delegate = self
+                newItemTableViewController.taskList = taskList
              }
-         }
+         } else if segue.identifier == "EditItemSegue" {
+            if let newItemTableViewController = segue.destination as? NewItemTableViewController {
+                if let cell = sender as? UITableViewCell,
+                   let indexPath = tableView.indexPath(for: cell) {
+                    let item = taskList.taskListArray[indexPath.row]
+                    newItemTableViewController.taskToEdit = item
+                }
+            }
+        }
      }
     
 }

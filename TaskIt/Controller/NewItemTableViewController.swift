@@ -18,6 +18,8 @@ protocol NewItemViewControllerDelegate : class {
 class NewItemTableViewController: UITableViewController {
     
     weak var delegate : NewItemViewControllerDelegate?
+    weak var taskList : TaskList?
+    weak var taskToEdit : TaskListItem?
     
     @IBOutlet weak var usersItemInput: UITextField!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -25,6 +27,7 @@ class NewItemTableViewController: UITableViewController {
     
     
     @IBAction func doneButtonPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
         let item = TaskListItem()
         if let textField = usersItemInput.text {
             item.text = textField
@@ -34,12 +37,18 @@ class NewItemTableViewController: UITableViewController {
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
         delegate?.newItemViewControllerDidCancel(self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
+        if let item = taskToEdit {
+            title = "Edit Item"
+            usersItemInput.text = item.text
+            doneButton.isEnabled = true
+        }
         usersItemInput.delegate = self
     }
     
