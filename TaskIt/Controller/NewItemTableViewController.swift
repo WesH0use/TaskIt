@@ -25,12 +25,16 @@ class NewItemTableViewController: UITableViewController {
     
     
     @IBAction func doneButtonPressed(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-        print("User input is: \(usersItemInput.text)")
+        let item = TaskListItem()
+        if let textField = usersItemInput.text {
+            item.text = textField
+        }
+        item.checked = false
+        delegate?.newItemViewControllerDidDone(self, didFinishDone: item)
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        delegate?.newItemViewControllerDidCancel(self)
     }
     
     override func viewDidLoad() {
@@ -67,5 +71,17 @@ extension NewItemTableViewController: UITextFieldDelegate {
         }
         return true
     }
+    
+}
+
+extension NewItemTableViewController : NewItemViewControllerDelegate {
+    func newItemViewControllerDidCancel(_ controller: NewItemTableViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func newItemViewControllerDidDone(_ controller: NewItemTableViewController, didFinishDone item: TaskListItem) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     
 }

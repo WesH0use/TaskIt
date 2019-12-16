@@ -45,6 +45,7 @@ class TaskTimeViewController: UITableViewController {
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .fade)
     }
+    // Provide delete functionality and user interface
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
