@@ -37,6 +37,12 @@ class TaskList {
         return item
     }
     
+    func move(item: TaskListItem, to index: Int){
+        guard let currentIndex = taskListArray.firstIndex(of: item) else {return}
+        taskListArray.remove(at: currentIndex)
+        taskListArray.insert(item, at: index)
+    }
+    
     private func randomDescription() -> String {
         let randomArray = ["To Do List App",
                            "Weather App",
