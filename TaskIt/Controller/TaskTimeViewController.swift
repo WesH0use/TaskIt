@@ -11,6 +11,7 @@ import UIKit
 class TaskTimeViewController: UITableViewController {
     
     var taskList : TaskList
+    @IBOutlet weak var deleteBarButton: UIBarButtonItem!
     
     @IBAction func addButtonPressed(_ sender: Any) {
         print("Test item Added")
@@ -83,7 +84,6 @@ class TaskTimeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.isEditing {
-            
             return
         }
         if let cell = tableView.cellForRow(at: indexPath) {
