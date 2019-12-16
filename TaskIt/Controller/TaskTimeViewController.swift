@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class TaskTimeViewController: UITableViewController {
     
@@ -47,6 +48,7 @@ class TaskTimeViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.leftBarButtonItem = editButtonItem
         tableView.allowsMultipleSelectionDuringEditing = true
+        tableView.separatorStyle = .none
         // Do any additional setup after loading the view.
     }
     
@@ -76,8 +78,11 @@ class TaskTimeViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskItemCell", for: indexPath)
         let item = taskList.taskListArray[indexPath.row]
+        
         configureTaskText(for: cell, with: item)
         configureCheckmark(for: cell, with: item)
+        cell.backgroundColor = UIColor.randomFlat()
+        
         return cell
     }
     
