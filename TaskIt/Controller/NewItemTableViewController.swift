@@ -74,14 +74,4 @@ extension NewItemTableViewController: UITextFieldDelegate {
     
 }
 
-extension NewItemTableViewController : NewItemViewControllerDelegate {
-    func newItemViewControllerDidCancel(_ controller: NewItemTableViewController) {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    func newItemViewControllerDidDone(_ controller: NewItemTableViewController, didFinishDone item: TaskListItem) {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    
-}
+

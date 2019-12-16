@@ -81,6 +81,23 @@ class TaskTimeViewController: UITableViewController {
         taskList.taskListArray[indexPath.row].checked = !isChecked
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if segue.identifier == "NewTaskSegue" {
+             if let newItemTableViewController = segue.destination as? NewItemTableViewController {
+                newItemTableViewController.delegate = self
+             }
+         }
+     }
     
+}
+
+extension TaskTimeViewController : NewItemViewControllerDelegate {
+    func newItemViewControllerDidCancel(_ controller: NewItemTableViewController) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func newItemViewControllerDidDone(_ controller: NewItemTableViewController, didFinishDone item: TaskListItem) {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
