@@ -98,6 +98,11 @@ extension TaskTimeViewController : NewItemViewControllerDelegate {
     
     func newItemViewControllerDidDone(_ controller: NewItemTableViewController, didFinishDone item: TaskListItem) {
         navigationController?.popViewController(animated: true)
+        let rowIndex = taskList.taskListArray.count
+        taskList.taskListArray.append(item)
+        let indexPath = IndexPath(row: rowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .middle)
     }
 }
 
