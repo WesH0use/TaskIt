@@ -81,10 +81,11 @@ class TaskTimeViewController: UITableViewController {
         
         configureTaskText(for: cell, with: item)
         configureCheckmark(for: cell, with: item)
-        cell.backgroundColor = UIColor.randomFlat()
+        configureCellColors(for: cell, at: indexPath)
         
         return cell
     }
+    
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -114,6 +115,14 @@ class TaskTimeViewController: UITableViewController {
             }
         item.changeChecked()
     }
+    
+    
+    func configureCellColors(for cell: UITableViewCell, at indexPath: IndexPath){
+        if let color = FlatMint().darken(byPercentage: CGFloat(indexPath.row)/CGFloat(taskList.taskListArray.count)){
+            cell.backgroundColor = color
+        }
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if segue.identifier == "NewTaskSegue" {
