@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ChameleonFramework
 
 class TaskTimeViewController: UITableViewController {
     
@@ -81,7 +80,6 @@ class TaskTimeViewController: UITableViewController {
         
         configureTaskText(for: cell, with: item)
         configureCheckmark(for: cell, with: item)
-        configureCellColors(for: cell, at: indexPath)
         
         return cell
     }
@@ -117,11 +115,11 @@ class TaskTimeViewController: UITableViewController {
     }
     
     
-    func configureCellColors(for cell: UITableViewCell, at indexPath: IndexPath){
-        if let color = FlatMint().darken(byPercentage: CGFloat(indexPath.row)/CGFloat(taskList.taskListArray.count)){
-            cell.backgroundColor = color
-        }
-    }
+//    func configureCellColors(for cell: UITableViewCell, at indexPath: IndexPath){
+//        if let color = FlatMint().darken(byPercentage: CGFloat(indexPath.row)/CGFloat(taskList.taskListArray.count)){
+//            cell.backgroundColor = color
+//        }
+//    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
