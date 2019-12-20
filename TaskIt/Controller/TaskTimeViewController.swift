@@ -20,6 +20,7 @@ class TaskTimeViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.separatorStyle = .none
+        self.view.layoutIfNeeded()
         // Do any additional setup after loading the view.
     }
     
@@ -74,7 +75,6 @@ class TaskTimeViewController: UITableViewController {
         
         configureTaskText(for: cell, with: item)
         configureCheckmark(for: cell, with: item)
-        
         return cell
     }
     
@@ -152,7 +152,9 @@ extension TaskTimeViewController : NewItemViewControllerDelegate {
         let rowIndex = taskList.taskListArray.count - 1
         let indexPath = IndexPath(row: rowIndex, section: 0)
         let indexPaths = [indexPath]
+        self.view.layoutIfNeeded()
         tableView.insertRows(at: indexPaths, with: .middle)
+        self.view.layoutIfNeeded()
     }
 }
 

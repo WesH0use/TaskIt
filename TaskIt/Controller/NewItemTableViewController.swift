@@ -53,6 +53,7 @@ class NewItemTableViewController: UITableViewController {
         if let item = taskToEdit {
             title = "Edit Item"
             usersItemInput.text = item.text
+            usersItemInput.layoutIfNeeded()
             doneButton.isEnabled = true
         }
         navigationItem.largeTitleDisplayMode = .never
@@ -67,6 +68,8 @@ class NewItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
+    
+    
     
 }
 
