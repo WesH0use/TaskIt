@@ -56,7 +56,7 @@ class NewItemTableViewController: UITableViewController {
             doneButton.isEnabled = true
         }
         navigationItem.largeTitleDisplayMode = .never
-        // usersItemInput.delegate = self
+        usersItemInput.delegate = self
     }
     
     
@@ -68,8 +68,6 @@ class NewItemTableViewController: UITableViewController {
         return nil
     }
     
-
-
 }
 
 extension NewItemTableViewController: UITextFieldDelegate {
