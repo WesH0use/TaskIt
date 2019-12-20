@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -69,7 +69,6 @@
 				DC6C309523954624006DFA9A /* Controller */,
 				DC6C30962395462F006DFA9A /* View */,
 				DC6C308323951C8A006DFA9A /* Assets.xcassets */,
-				DC6C308523951C8A006DFA9A /* LaunchScreen.storyboard */,
 				DC6C308823951C8A006DFA9A /* Info.plist */,
 				DC6C3092239544DC006DFA9A /* Model */,
 			);
@@ -99,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				DC6C308023951C84006DFA9A /* Main.storyboard */,
+				DC6C308523951C8A006DFA9A /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";

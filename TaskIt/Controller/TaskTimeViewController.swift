@@ -11,16 +11,23 @@ import UIKit
 class TaskTimeViewController: UITableViewController {
     
     var taskList : TaskList
+    
     @IBOutlet weak var deleteBarButton: UIBarButtonItem!
     
-    @IBAction func addButtonPressed(_ sender: Any) {
-        print("Test item Added")
-        let newRowIndex = taskList.taskListArray.count
-        _ = taskList.newTask()
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.leftBarButtonItem = editButtonItem
+        tableView.allowsMultipleSelectionDuringEditing = true
+        tableView.separatorStyle = .none
+        // Do any additional setup after loading the view.
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        taskList = TaskList()
+        super.init(coder: aDecoder)
+    }
+    
     
     @IBAction func deleteButtonPressed(_ sender: Any) {
         if let selectedRows = tableView.indexPathsForSelectedRows {
@@ -36,30 +43,18 @@ class TaskTimeViewController: UITableViewController {
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        taskList = TaskList()
-        super.init(coder: aDecoder)
-    }
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.leftBarButtonItem = editButtonItem
-        tableView.allowsMultipleSelectionDuringEditing = true
-        tableView.separatorStyle = .none
-        // Do any additional setup after loading the view.
-    }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: true)
         tableView.setEditing(tableView.isEditing, animated: true)
     }
     
+    
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         taskList.move(item: taskList.taskListArray[sourceIndexPath.row], to: destinationIndexPath.row)
         //tableView.reloadData()
     }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taskList.taskListArray.count
@@ -71,7 +66,6 @@ class TaskTimeViewController: UITableViewController {
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .fade)
     }
-    // Provide delete functionality and user interface
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,7 +77,6 @@ class TaskTimeViewController: UITableViewController {
         
         return cell
     }
-    
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -104,6 +97,7 @@ class TaskTimeViewController: UITableViewController {
         }
     }
     
+    
     func configureCheckmark(for cell: UITableViewCell, with item: TaskListItem) {
         guard let checkmarkCell = cell as? TaskListViewControllerCell else { return }
         if item.checked {
@@ -111,15 +105,8 @@ class TaskTimeViewController: UITableViewController {
             } else {
             checkmarkCell.checkmarkLabel.text = ""
             }
-        item.changeChecked()
+            item.changeChecked()
     }
-    
-    
-//    func configureCellColors(for cell: UITableViewCell, at indexPath: IndexPath){
-//        if let color = FlatMint().darken(byPercentage: CGFloat(indexPath.row)/CGFloat(taskList.taskListArray.count)){
-//            cell.backgroundColor = color
-//        }
-//    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -141,6 +128,7 @@ class TaskTimeViewController: UITableViewController {
      }
     
 }
+
 
 extension TaskTimeViewController : NewItemViewControllerDelegate {
     func newItemViewControllerDidEdit(_ controller: NewItemTableViewController, didFinishEdit item: TaskListItem) {

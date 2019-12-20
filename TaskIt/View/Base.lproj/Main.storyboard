@@ -16,14 +16,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="taskItemCell" id="q5y-W1-fwM" customClass="TaskListViewControllerCell" customModule="TaskIt" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q5y-W1-fwM" id="elf-k8-XWB">
-                                    <rect key="frame" x="0.0" y="0.0" width="351" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="351" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJt-QF-oPl">
-                                            <rect key="frame" x="51" y="11" width="42" height="21"/>
+                                            <rect key="frame" x="51" y="11" width="42" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -104,7 +104,7 @@
                                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
-                                                        <action selector="doneButtonPressed:" destination="grq-YJ-uyS" eventType="editingDidEnd" id="28e-dS-9Ih"/>
+                                                        <action selector="doneButtonPressed:" destination="grq-YJ-uyS" eventType="editingDidEndOnExit" id="Ive-h7-hue"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -126,10 +126,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ELM-dG-XL4">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2qP-JX-Wsy">
-                            <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="jfx-Wh-5tQ">
                             <connections>
-                                <action selector="cancelButtonPressed:" destination="grq-YJ-uyS" id="O99-Gv-x7L"/>
+                                <action selector="cancelButtonTapped:" destination="grq-YJ-uyS" id="0Zt-Xg-tKW"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Done" id="MtS-kG-hyQ">
@@ -140,7 +139,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelButton" destination="2qP-JX-Wsy" id="CPu-K3-gSV"/>
+                        <outlet property="cancelButtonPressed" destination="jfx-Wh-5tQ" id="dOL-gB-5JX"/>
                         <outlet property="doneButton" destination="MtS-kG-hyQ" id="1pU-a5-FNY"/>
                         <outlet property="usersItemInput" destination="P9m-25-BZo" id="dPi-5M-vZ9"/>
                     </connections>
