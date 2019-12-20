@@ -74,6 +74,7 @@ extension NewItemTableViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         usersItemInput.resignFirstResponder()
+        doneButtonPressed(self)
         return false
     }
     

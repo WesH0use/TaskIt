@@ -103,9 +103,6 @@
                                                     <rect key="frame" x="20" y="4" width="374" height="34.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                                    <connections>
-                                                        <action selector="doneButtonPressed:" destination="grq-YJ-uyS" eventType="editingDidEndOnExit" id="Ive-h7-hue"/>
-                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
