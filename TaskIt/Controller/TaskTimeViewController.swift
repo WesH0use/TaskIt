@@ -85,6 +85,7 @@ class TaskTimeViewController: UITableViewController {
         }
         if let cell = tableView.cellForRow(at: indexPath) {
             let item = taskList.taskListArray[indexPath.row]
+            item.changeChecked()
             configureCheckmark(for: cell, with: item)
             tableView.deselectRow(at: indexPath, animated: true)
         }
@@ -99,13 +100,14 @@ class TaskTimeViewController: UITableViewController {
     
     
     func configureCheckmark(for cell: UITableViewCell, with item: TaskListItem) {
-        guard let checkmarkCell = cell as? TaskListViewControllerCell else { return }
+        guard let checkmarkCell = cell as? TaskListViewControllerCell else {
+            return
+        }
         if item.checked {
             checkmarkCell.checkmarkLabel.text = "✅"
             } else {
             checkmarkCell.checkmarkLabel.text = ""
             }
-            item.changeChecked()
     }
     
     

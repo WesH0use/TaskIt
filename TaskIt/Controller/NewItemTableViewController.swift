@@ -34,8 +34,8 @@ class NewItemTableViewController: UITableViewController {
             if let item = taskList?.newTask() {
                 if let textField = usersItemInput.text {
                     item.text = textField
+                    item.checked = false
                 }
-                item.checked = false
                 delegate?.newItemViewControllerDidDone(self, didFinishDone: item)
             }
         }
