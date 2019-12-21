@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import RealmSwift
 
 protocol NewItemViewControllerDelegate : class {
     func newItemViewControllerDidCancel(_ controller: NewItemTableViewController)
@@ -20,6 +20,21 @@ class NewItemTableViewController: UITableViewController {
     weak var delegate : NewItemViewControllerDelegate?
     weak var taskList : TaskList?
     weak var taskToEdit : TaskListItem?
+        
+    let realm = try! Realm()
+    
+    
+    func save(item: TaskListItem) {
+        do {
+            try realm.write {
+                realm.add(item)
+            }
+        } catch {
+            print("Error saving category: \(error)")
+        }
+        tableView.reloadData()
+    }
+        
     
     @IBOutlet weak var usersItemInput: UITextField!
     @IBOutlet weak var doneButton: UIBarButtonItem!
@@ -35,6 +50,7 @@ class NewItemTableViewController: UITableViewController {
                 if let textField = usersItemInput.text {
                     item.text = textField
                     item.checked = false
+                    save(item: item)
                 }
                 delegate?.newItemViewControllerDidDone(self, didFinishDone: item)
             }
@@ -46,6 +62,7 @@ class NewItemTableViewController: UITableViewController {
         navigationController?.popViewController(animated: true)
         delegate?.newItemViewControllerDidCancel(self)
     }
+    
     
     
     override func viewDidLoad() {
@@ -68,8 +85,6 @@ class NewItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
-    
-    
     
 }
 

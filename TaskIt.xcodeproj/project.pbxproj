@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0378B1D764B19ED703724F8F /* Pods_TaskIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D158D3074A4320AA7DD5AE /* Pods_TaskIt.framework */; };
 		DC6C307B23951C84006DFA9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C307A23951C84006DFA9A /* AppDelegate.swift */; };
 		DC6C307D23951C84006DFA9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C307C23951C84006DFA9A /* SceneDelegate.swift */; };
 		DC6C307F23951C84006DFA9A /* TaskTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C307E23951C84006DFA9A /* TaskTimeViewController.swift */; };
@@ -20,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		78E64F806154D1B068A6DC71 /* Pods-TaskIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskIt.release.xcconfig"; path = "Target Support Files/Pods-TaskIt/Pods-TaskIt.release.xcconfig"; sourceTree = "<group>"; };
+		B0D158D3074A4320AA7DD5AE /* Pods_TaskIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB8FBE6A61D263D259FE88D6 /* Pods-TaskIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskIt.debug.xcconfig"; path = "Target Support Files/Pods-TaskIt/Pods-TaskIt.debug.xcconfig"; sourceTree = "<group>"; };
 		DC6C307723951C84006DFA9A /* TaskIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6C307A23951C84006DFA9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC6C307C23951C84006DFA9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0378B1D764B19ED703724F8F /* Pods_TaskIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E28E6643F0E0A9295E84678 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB8FBE6A61D263D259FE88D6 /* Pods-TaskIt.debug.xcconfig */,
+				78E64F806154D1B068A6DC71 /* Pods-TaskIt.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8CBDBCBBD9BFE3055C72F96D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0D158D3074A4320AA7DD5AE /* Pods_TaskIt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DC6C306E23951C84006DFA9A = {
 			isa = PBXGroup;
 			children = (
 				DC6C307923951C84006DFA9A /* TaskIt */,
 				DC6C307823951C84006DFA9A /* Products */,
+				6E28E6643F0E0A9295E84678 /* Pods */,
+				8CBDBCBBD9BFE3055C72F96D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC6C308B23951C8A006DFA9A /* Build configuration list for PBXNativeTarget "TaskIt" */;
 			buildPhases = (
+				DA89EEAA389B6DB234E648EF /* [CP] Check Pods Manifest.lock */,
 				DC6C307323951C84006DFA9A /* Sources */,
 				DC6C307423951C84006DFA9A /* Frameworks */,
 				DC6C307523951C84006DFA9A /* Resources */,
+				8D218FBFFD09C88026A595BC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,6 +194,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8D218FBFFD09C88026A595BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TaskIt/Pods-TaskIt-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TaskIt/Pods-TaskIt-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TaskIt/Pods-TaskIt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA89EEAA389B6DB234E648EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TaskIt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DC6C307323951C84006DFA9A /* Sources */ = {
@@ -322,6 +390,7 @@
 		};
 		DC6C308C23951C8A006DFA9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB8FBE6A61D263D259FE88D6 /* Pods-TaskIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -340,6 +409,7 @@
 		};
 		DC6C308D23951C8A006DFA9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78E64F806154D1B068A6DC71 /* Pods-TaskIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

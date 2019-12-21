@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import RealmSwift
 
 
-class TaskListItem : NSObject {
+class TaskListItem : Object {
     
-    var text = ""
-    var checked = false
+    @objc dynamic var text = ""
+    @objc dynamic var checked = false
+    // var parentCategory = LinkingObjects(fromType: TaskList.self, property: "taskListArray")
     
     func changeChecked() {
       checked = !checked

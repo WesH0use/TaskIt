@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TaskTimeViewController: UITableViewController {
     
+    let realm = try! Realm()
+    
     var taskList : TaskList
+    
     
     @IBOutlet weak var deleteBarButton: UIBarButtonItem!
     
@@ -20,8 +24,7 @@ class TaskTimeViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.separatorStyle = .none
-        self.view.layoutIfNeeded()
-        // Do any additional setup after loading the view.
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,7 +43,6 @@ class TaskTimeViewController: UITableViewController {
             tableView.beginUpdates()
             tableView.deleteRows(at: selectedRows, with: .middle)
             tableView.endUpdates()
-            
         }
     }
     
@@ -75,6 +77,7 @@ class TaskTimeViewController: UITableViewController {
         
         configureTaskText(for: cell, with: item)
         configureCheckmark(for: cell, with: item)
+        
         return cell
     }
     
